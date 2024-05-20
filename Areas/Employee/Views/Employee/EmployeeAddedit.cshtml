@@ -1,0 +1,107 @@
+﻿@using Project_Management2.Areas.Employee.Models;
+@{
+    ViewData["Title"] = "Addedit Page";
+}
+@model EmployeeModel
+
+<div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-area="Employee" asp-controller="Employee" asp-action="EmployeeList">Employee List</a></li>
+            <li class="breadcrumb-item active">Add Employee</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Emmployee Details Form</h5>
+
+        <!-- No Labels Form -->
+        <form class="row g-3" asp-action="Save" asp-controller="Employee" asp-area="Employee" enctype="multipart/form-data">
+            @Html.HiddenFor(x => x.EmpID)
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Employee Name</label>
+                <input type="text" class="form-control" placeholder="Enter Employee Name" asp-for="EmpName">
+                <span asp-validation-for="EmpName" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Employee Code</label>
+                <input type="text" class="form-control" placeholder="Enter Employee Code" asp-for="EmpCode">
+                <span asp-validation-for="EmpCode" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Is Manager</label>
+                <select id="inputStatus" class="form-select" asp-for="EmpManagerId">
+                    <option selected>Select Is Manager</option>
+                    <option value="True">True</option>
+                    <option value="False">False</option>
+                </select>
+                <span asp-validation-for="EmpManagerId" class="text-danger"></span>
+            </div>
+            <div class="col-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Employee Department</label>
+                <input type="text" class="form-control" placeholder="Enter Employee Department" asp-for="EmpDepartment">
+                <span asp-validation-for="EmpDepartment" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Employee Position</label>
+                <input type="text" class="form-control" placeholder="Enter Employee Position" asp-for="EmpPosition">
+                <span asp-validation-for="EmpPosition" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Employee DateOfBirth</label>
+                <input type="date" class="form-control" placeholder="Enter Employee DOB" asp-for="EmpDateOfBirth">
+                <span asp-validation-for="EmpDateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Employee Contact</label>
+                <input type="text" class="form-control" placeholder="Enter Employee Contact" asp-for="EmpContact">
+                <span asp-validation-for="EmpContact" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Employee Email</label>
+                <input type="text" class="form-control" placeholder="Enter Employee Email" asp-for="EmpEmail">
+                <span asp-validation-for="EmpEmail" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Employee PerHourCharge</label>
+                <input type="text" class="form-control" placeholder="Enter Employee PerHourCharge" asp-for="EmpPerHourCharge">
+                <span asp-validation-for="EmpPerHourCharge" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>EmpProfileImage</label>
+                <input class="form-control" type="file" id="formFile" accept="image/*" placeholder="Enter Employee ProfileImage" asp-for="EmpProfileImagefile">
+                <span asp-validation-for="EmpProfileImagefile" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Employee ProofImage</label>
+                <input class="form-control" type="file" id="formFile" accept="image/*" placeholder="Enter Employee ProofImag" asp-for="EmpProofImagefile">
+                <span asp-validation-for="EmpProofImagefile" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Employee ProofName</label>
+                <input class="form-control" type="text" placeholder="Enter Employee ProofImag" asp-for="EmpProofName">
+                <span asp-validation-for="EmpProofName" class="text-danger"></span>
+            </div>
+            <div class="col-md-12">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Employee GitLink</label>
+                <input class="form-control" type="text" placeholder="Enter Employee GitLink" asp-for="EmpGitLink">
+                <span asp-validation-for="EmpGitLink" class="text-danger"></span>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-info btn-md">
+                    Submit
+                </button>
+                <a class="btn btn-secondary btn-md" asp-area="Employee" asp-controller="Employee" asp-action="EmployeeList">Back</a>
+                <button type="reset" class="btn btn-danger btn-md">Reset</button>
+            </div>
+        </form><!-- End No Labels Form -->
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial.cshtml" />
+
+}

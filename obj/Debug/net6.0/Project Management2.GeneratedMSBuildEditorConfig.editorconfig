@@ -1,0 +1,163 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Project_Management2
+build_property.RootNamespace = Project_Management2
+build_property.ProjectDir = D:\dot net\Project Management2\Project Management2\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\dot net\Project Management2\Project Management2
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/AdminLogin/Views/Login/LoginPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5Mb2dpblxWaWV3c1xMb2dpblxMb2dpblBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/AdminLogin/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5Mb2dpblxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/AdminLogin/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5Mb2dpblxfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/Employee/Views/Employee/EmployeeAddedit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcRW1wbG95ZWVcRW1wbG95ZWVBZGRlZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/Employee/Views/Employee/EmployeeList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcRW1wbG95ZWVcRW1wbG95ZWVMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/Employee/Views/Employee/TaskAssignEmployeeList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcRW1wbG95ZWVcVGFza0Fzc2lnbkVtcGxveWVlTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/Employee/Views/Employee/TaskNotAssignEmployeeList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcVmlld3NcRW1wbG95ZWVcVGFza05vdEFzc2lnbkVtcGxveWVlTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/Employee/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/Employee/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1wbG95ZWVcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/ProjectWiseTask/Views/ProjectWiseTask/ProjectWiseTaskAddedit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFdpc2VUYXNrXFZpZXdzXFByb2plY3RXaXNlVGFza1xQcm9qZWN0V2lzZVRhc2tBZGRlZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/ProjectWiseTask/Views/ProjectWiseTask/ProjectWiseTaskList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFdpc2VUYXNrXFZpZXdzXFByb2plY3RXaXNlVGFza1xQcm9qZWN0V2lzZVRhc2tMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/ProjectWiseTask/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFdpc2VUYXNrXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/ProjectWiseTask/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFdpc2VUYXNrXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/Project/Views/Project/ProjectAddedit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFxWaWV3c1xQcm9qZWN0XFByb2plY3RBZGRlZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/Project/Views/Project/ProjectCompleteList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFxWaWV3c1xQcm9qZWN0XFByb2plY3RDb21wbGV0ZUxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/Project/Views/Project/ProjectCurrentList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFxWaWV3c1xQcm9qZWN0XFByb2plY3RDdXJyZW50TGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/Project/Views/Project/ProjectList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFxWaWV3c1xQcm9qZWN0XFByb2plY3RMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/Project/Views/Project/ProjectUpcomingList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFxWaWV3c1xQcm9qZWN0XFByb2plY3RVcGNvbWluZ0xpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/Project/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/Project/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFxfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/TaskAssign/Views/TaskAssign/TaskAssignAddedit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVGFza0Fzc2lnblxWaWV3c1xUYXNrQXNzaWduXFRhc2tBc3NpZ25BZGRlZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/TaskAssign/Views/TaskAssign/TaskAssignList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVGFza0Fzc2lnblxWaWV3c1xUYXNrQXNzaWduXFRhc2tBc3NpZ25MaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/TaskAssign/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVGFza0Fzc2lnblxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Areas/TaskAssign/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVGFza0Fzc2lnblxfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Views/Home/contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxjb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Views/Home/Faq.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGYXEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Views/Home/profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxwcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Views/Shared/_EmployeeInfoParitialview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FbXBsb3llZUluZm9QYXJpdGlhbHZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Views/Shared/_LoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/dot net/Project Management2/Project Management2/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-8bhtn4oy8t

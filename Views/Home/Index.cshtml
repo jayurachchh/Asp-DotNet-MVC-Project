@@ -1,0 +1,478 @@
+﻿@using Project_Management2.Areas.TaskAssign.Models;
+@using Project_Management2.Areas.Dashbord.Models;
+@using Project_Management2.Areas.Project.Models;
+@using System.Data;
+@model Tuple<IEnumerable<TaskAssignModel>,IEnumerable<ProjectModel>,IEnumerable<RecentAction>>;
+@{
+    ViewData["Title"] = "Index Page";
+    // var dashbordData = ViewBag.DashbordData;
+}
+
+<div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item active">Dashbord</li>
+        </ol>
+    </nav>
+</div>
+<!-- End Page Title -->
+<div class="row">
+
+    <!-- Left side columns -->
+    <div class="col-lg-12">
+        <div class="row">
+
+            <!-- Sales Card -->
+
+            <div class="col-xxl-4 col-md-4">
+                <a class="nav-link collapsed" asp-area="Employee" asp-controller="Employee" asp-action="EmployeeList">
+                    <div class="card info-card sales-card">
+                        <div class="card-body">
+                            <a class="nav-link collapsed" asp-area="Employee" asp-controller="Employee" asp-action="EmployeeList">
+                                <h5 class="card-title">Total Employees</h5>
+                            </a>
+                            <div class="d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6>@ViewBag.DashbordData[0].TotalEmployee</h6>
+                                    <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+
+            <!-- End Sales Card -->
+            <!-- Revenue Card -->
+            <!-- End Revenue Card -->
+
+            <div class="col-xxl-4 col-md-4">
+                <a class="nav-link collapsed" asp-area="Employee" asp-controller="Employee" asp-action="TaskNotAssignEmployeeList"></a>
+                <div class="card info-card revenue-card">
+                    <div class="card-body">
+                        <a class="nav-link collapsed" asp-area="Employee" asp-controller="Employee" asp-action="TaskAssignEmployeeList">
+                            <h5 class="card-title">Task Assigned Employee <span></span></h5>
+                        </a>
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6>@ViewBag.DashbordData[0].TotalEmployeeAssignedtask</h6>
+                                <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xxl-4 col-md-4">
+                <a class="nav-link collapsed" asp-area="Employee" asp-controller="Employee" asp-action="TaskNotAssignEmployeeList"></a>
+                <div class="card info-card customers-card">
+                    <div class="card-body">
+                        <a class="nav-link collapsed" asp-area="Employee" asp-controller="Employee" asp-action="TaskNotAssignEmployeeList">
+                            <h5 class="card-title">Task Not Assigned Employee <span></span></h5>
+                        </a>
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6>@ViewBag.DashbordData[0].TotalEmployeesWithoutTasks</h6>
+                                <span class="text-danger small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Customers Card -->
+
+            <div class="col-xxl-3 col-md-3">
+                <a class="nav-link collapsed" asp-area="Project" asp-controller="Project" asp-action="ProjectList">
+                    <div class="card info-card sales-card">
+                        <div class="card-body">
+                            <a class="nav-link collapsed" asp-area="Project" asp-controller="Project" asp-action="ProjectList">
+                                <h5 class="card-title">Total Project <span></span></h5>
+                            </a>
+                            <div class="d-flex align-items-center">
+                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-file-earmark"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h6>@ViewBag.DashbordData[0].TotalProject</h6>
+                                    <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                                </div>
+                            </div>
+                        </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-xxl-3 col-md-3">
+            <a asp-area="Project" asp-controller="Project" asp-action="ProjectUpcomingList">
+                <div class="card info-card customers-card">
+                    <div class="card-body">
+                        <a asp-area="Project" asp-controller="Project" asp-action="ProjectUpcomingList">
+                            <h5 class="card-title">Upcoming Project<span> </span></h5>
+                        </a>
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-file-earmark-lock"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6>@ViewBag.DashbordData[0].TotalUpcomingProject</h6>
+                                <span class="text-danger small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </a>
+        </div>
+        <div class="col-xxl-3 col-md-3">
+            <a asp-area="Project" asp-controller="Project" asp-action="ProjectCurrentList">
+                <div class="card info-card customers-card">
+                    <div class="card-body">
+                        <a asp-area="Project" asp-controller="Project" asp-action="ProjectCurrentList">
+                            <h5 class="card-title">Current Project <span></span></h5>
+                        </a>
+                        <div class="d-flex align-items-center">
+                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-file-earmark-bar-graph"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h6>@ViewBag.DashbordData[0].TotalCurrentProject</h6>
+                                <span class="text-danger small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </a>
+        </div>
+
+        <div class="col-xxl-3 col-md-3">
+            <a asp-area="Project" asp-controller="Project" asp-action="ProjectCompleteList">
+                <div class="card info-card revenue-card">
+            </a>
+            <div class="card-body">
+                <a asp-area="Project" asp-controller="Project" asp-action="ProjectCompleteList">
+                    <h5 class="card-title">Complete Project <span></span></h5>
+                </a>
+                <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi bi-file-earmark-check"></i>
+                    </div>
+                    <div class="ps-3">
+                        <h6>@ViewBag.DashbordData[0].TotalCompleteProject</h6>
+                        <span class="text-danger small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1"></span>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!--<!-- End Customers Card -->
+
+
+
+</div>
+    </div><!-- End Left side columns -->
+
+<div class="col-lg-6">
+    <div class="row">
+        <!-- Reports -->
+        <div class="col-12">
+            <div class="card">
+
+                <div class="card-body">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-link-45deg bi-3x"></i> <!-- Large size -->
+                        Quicks Links
+                    </h5>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li>
+                                <i class="bi bi-person-lines-fill" style="font-size: 1.35rem; width: 30px; text-align: center;"></i>
+                                <a asp-action="EmployeeList" asp-controller="Employee" asp-area="Employee" class="quick-link text-decoration-none fs-5 ms-3">Total Employee</a>
+                            </li>
+                            <h1></h1>
+                            <li>
+                                <i class="bi bi-person-fill-check" style="font-size: 1.35rem; width: 30px; text-align: center;"></i>
+                                <a asp-action="TaskAssignEmployeeList" asp-controller="Employee" asp-area="Employee" class="quick-link text-decoration-none fs-5 ms-3">Total Task Assign Employee</a>
+                            </li>
+                            <h1></h1>
+                            <li>
+                                <i class="bi bi-list-task" style="font-size: 1.35rem; width: 30px; text-align: center;"></i>
+                                <a asp-action="ProjectList" asp-controller="Project" asp-area="Project" class="quick-link text-decoration-none fs-5 ms-3">Total Project</a>
+                            </li>
+                            <h1></h1>
+                            <li>
+                                <i class="bi bi-list-task" style="font-size: 1.35rem; width: 30px; text-align: center;"></i>
+                                <a asp-action="ProjectUpcomingList" asp-controller="Project" asp-area="Project" class="quick-link text-decoration-none fs-5 ms-3">Total Upcoming Project</a>
+                            </li>
+                            <h1></h1>
+                            <li>
+                                <i class="bi bi-list-check" style="font-size: 1.35rem; width: 30px; text-align: center;"></i>
+                                <a asp-action="ProjectCurrentList" asp-controller="ProjectCurrentList" asp-area="ProjectCurrentList" class="quick-link text-decoration-none fs-5 ms-3">Total Current Project</a>
+                            </li>
+                            <h1></h1>
+                            <li>
+                                <i class="bi bi-list-stars" style="font-size: 1.35rem; width: 30px; text-align: center;"></i>
+                                <a asp-action="TaskAssignList" asp-controller="TaskAssign" asp-area="TaskAssign" class="quick-link text-decoration-none fs-5 ms-3">Total Task Assigned</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End Line Chart -->
+
+                </div>
+
+            </div>
+        </div><!-- End Reports -->
+    </div>
+</div>
+
+<div class="col-lg-6">
+    <div class="card flex-fill">
+        <div class="card-header pb-0 d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">
+                <span tabindex="0" role="button" class="text-decoration-none" style="color:black; cursor:pointer;"
+                      data-bs-toggle="popover" data-bs-placement="right" data-bs-trigger="focus"
+                      data-bs-content="Recent Actions Show To Notify Which Process Happened !">
+                    <i class="fas fa-clock"></i>
+                </span>
+                <i class="bi bi-clock-fill bi-3x"></i> Recent Actions
+            </h5>
+        </div>
+        <!-- Start of scrollable area -->
+        <div class="card-body overflow-auto" style="max-height: 37vh;">
+            <!-- Adjust max-height as needed -->
+            @if (Model.Item3 != null && Model.Item3.Any())
+            {
+                var today = DateTime.Today;
+                var yesterday = today.AddDays(-1);
+                bool todayTasksExist = Model.Item3.Any(a => a.Rec_Act_Create.Date == today);
+                bool yesterdayTasksExist = Model.Item3.Any(a => a.Rec_Act_Create.Date == yesterday);
+
+                if (todayTasksExist || yesterdayTasksExist)
+                {
+                    <ul class="list-group list-group-flush">
+                        @if (todayTasksExist)
+                        {
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <div class="me-2" style="font-style:initial; font-weight:bold; color:lightslategrey;">Today</div>
+                                    <hr class="flex-grow-1 my-auto">
+                                </div>
+                            </li>
+                            @foreach (var action in Model.Item3.Where(a => a.Rec_Act_Create.Date == today))
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center" style="gap: 8px;">
+                                        <i class="bi bi-bell-fill"></i>
+                                        <span>@action.Rec_Act_Info</span>
+                                    </div>
+                                    <span class="text-muted">@action.Rec_Act_Create.ToString("hh:mm tt")</span>
+                                </li>
+                            }
+                        }
+
+                        @if (yesterdayTasksExist)
+                        {
+                            @if (todayTasksExist)
+                            {
+                                <li><br /></li> <!-- Optional: Spacer if both today and yesterday tasks exist -->
+                            }
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between">
+                                    <div class="me-2" style="font-style:initial; font-weight:bold; color:lightslategrey;">Yesterday</div>
+                                    <hr class="flex-grow-1 my-auto">
+                                </div>
+                            </li>
+                            @foreach (var action in Model.Item3.Where(a => a.Rec_Act_Create.Date == yesterday))
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center" style="gap: 8px;">
+                                        <i class="bi bi-bell-fill"></i>
+                                        <span>@action.Rec_Act_Info</span>
+                                    </div>
+                                    <span class="text-muted">@action.Rec_Act_Create.ToString("hh:mm tt")</span>
+                                </li>
+                            }
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="fa fa-times-circle"></i> No Recent Tasks
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fa fa-times-circle"></i> No Recent Tasks
+                </div>
+            }
+        </div>
+        <!-- End of scrollable area -->
+    </div>
+
+</div>
+
+
+<div class="col-lg-12">
+    <div class="row">
+        <!-- Recent Sales -->
+        <div class="col-12">
+            <div class="card recent-sales overflow-auto">
+
+
+
+                <div class="card-body">
+                    <h5 class="card-title">Task Assign</h5>
+
+                    <table class="table table-borderless datatable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sr.No</th>
+                                <th scope="col">Employee Name</th>
+                                <th scope="col">Task Name</th>
+
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int i = 1;
+                            }
+                            @{
+                                if (Model.Item1.Count() > 0)
+                                {
+                                    @foreach (TaskAssignModel tsk in Model.Item1)
+                                    {
+
+                                        <tr>
+                                            <th scope="row"><a href="#">@i</a></th>
+                                            <td>@tsk.EmpName</td>
+                                            <td>@tsk.ProjWiseTaskName</td>
+
+                                            <td><span class="badge bg-@tsk.StatusCssColor">@tsk.StatusName</span></td>
+                                        </tr>
+                                        i = i + 1;
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="5" class="text-center">
+                                            <p class="col-form-label">No Record Found</p>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div><!-- End Recent Sales -->
+        <!-- Top Selling -->
+        <div class="col-12">
+            <div class="card top-selling overflow-auto">
+                <div class="card-body pb-0">
+                    <h5 class="card-title">Project List</h5>
+                    @{
+                        if (Model.Item2.Count() > 0)
+                        {
+                            <table class="table table-borderless datatable">
+                                <thead>
+                                    <tr>
+
+                                        <th scope="col">Sr.No</th>
+                                        <th scope="col">Project</th>
+                                        <th scope="col">ProjStartDate</th>
+                                        <th scope="col">ProjEndDate</th>
+                                        <th scope="col">ProjManager</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">TotalCost</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        int j = 1;
+                                    }
+                                    @{
+                                        if (Model.Item2.Count() > 0)
+                                        {
+                                            @foreach (ProjectModel proj in Model.Item2)
+                                            {
+                                                <tr>
+                                                    <td>@j</td>
+                                                    <td>@proj.ProjName</td>
+                                                    <td>@(proj.ProjStartDate == null ? "" : proj.ProjStartDate.Value.ToString("dd-MM-yyyy"))</td>
+                                                    <td>@(proj.ProjEndDate == null ? "" : proj.ProjEndDate.Value.ToString("dd-MM-yyyy"))</td>
+                                                    <td>@proj.EmpName</td>
+                                                    <td><span class="badge bg-@proj.StatusCssColor">@proj.StatusName</td>
+                                                    <td>@proj.ProjTotalCost</td>
+                                                </tr>
+                                                j = j + 1;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td colspan="5" class="text-center">
+                                                    <p class="col-form-label">No Record Found</p>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+
+                                </tbody>
+                            </table>
+
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <h1 class=" text-center text-danger">No Record Found</h1>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </div>
+            </div>
+        </div><!-- End Top Selling -->
+    </div>
+</div>
+</div>

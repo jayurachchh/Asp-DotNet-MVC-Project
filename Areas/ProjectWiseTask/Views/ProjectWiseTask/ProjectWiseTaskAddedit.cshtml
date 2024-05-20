@@ -1,0 +1,74 @@
+﻿@using Project_Management2.Areas.ProjectWiseTask.Models;
+@{
+    ViewData["Title"] = "Addedit Page";
+}
+@model ProjectWiseTaskModel
+<div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-area="ProjectWiseTask" asp-controller="ProjectWiseTask" asp-action="ProjectWiseTaskList">ProjectWiseTask List</a></li>
+            <li class="breadcrumb-item active">Add ProjectWiseTask</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">ProjectWiseTask Details Form</h5>
+
+        <!-- No Labels Form -->
+        <form class="row g-3" asp-action="Save" asp-controller="ProjectWiseTask" asp-area="ProjectWiseTask">
+            @Html.HiddenFor(x=>x.ProjWiseTaskID)
+            <div class="form-group col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Select Project</label>
+                <select id="inputStatus" class="form-select" asp-for="ProjID" asp-items="@(new SelectList(ViewBag.projectList,"ProjID","ProjName"))">
+                    <option selected>Select Project</option>
+                </select>
+                <span asp-validation-for="ProjID" class="text-danger"></span> 
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>ProjectWiseTask EmployeeNumber</label>
+                <input type="text" class="form-control" placeholder="Enter ProjectWiseTask EmployeeNumber" asp-for="ProjectWiseTaskEmployeeNumber">
+                <span asp-validation-for="ProjectWiseTaskEmployeeNumber" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>ProjectWiseTask Name</label>
+                <input type="text" class="form-control" placeholder="Enter ProjectWiseTask Name" asp-for="ProjWiseTaskName">
+                <span asp-validation-for="ProjWiseTaskName" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>ProjectWiseTask Number</label>
+                <input type="text" class="form-control" placeholder="Enter ProjectWiseTask Number" asp-for="ProjWiseTaskNumber">
+                <span asp-validation-for="ProjWiseTaskNumber" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>ProjectWiseTask Start Date</label>
+                <input type="date" class="form-control" placeholder="Enter ProjectWiseTask Number Of days" asp-for="ProjWiseTaskStartDate">
+                <span asp-validation-for="ProjWiseTaskStartDate" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>ProjectWiseTask End Date</label>
+                <input type="date" class="form-control" placeholder="Enter ProjectWiseTask Number Of days" asp-for="ProjWiseTaskEndDate">
+                <span asp-validation-for="ProjWiseTaskEndDate" class="text-danger"></span>
+            </div>
+
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-info btn-md">Submit</button>
+                <a class="btn btn-secondary btn-md" asp-area="ProjectWiseTask" asp-controller="ProjectWiseTask" asp-action="ProjectWiseTaskList">Back</a>
+                <button type="reset" class="btn btn-danger btn-md">Reset</button>
+            </div>
+        </form><!-- End No Labels Form -->
+
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial.cshtml" />
+
+}
+

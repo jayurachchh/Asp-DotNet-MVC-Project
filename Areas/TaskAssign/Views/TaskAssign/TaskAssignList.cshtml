@@ -1,0 +1,278 @@
+﻿@using Project_Management2.Areas.TaskAssign.Models;
+@using Project_Management2.UrlEncryption;
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+
+}
+@section Scripts
+    {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+        // Check if TempData contains a success message
+        var successMessage = '@TempData["Message"]';
+        var deleteMessage = '@TempData["Message1"]';
+        if (successMessage) {
+            // Display SweetAlert
+            Swal.fire({
+                title: "Good job!",
+                text: successMessage,
+                icon: "success"
+            });
+        }
+        if (deleteMessage) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: deleteMessage,
+            });
+        }
+        function Delete(taskassignId) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You Want to Delete Employee ",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect to the Delete action with the EmpID parameter
+                    window.location.href = '@Url.Action("Delete", "TaskAssign")' + '?TaskAssignIDlist=' + taskassignId.toString();
+                }
+            });
+        }
+        function Update(taskassignId) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You Want to Update Employee",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Update it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect to the Delete action with the EmpID parameter
+                    window.location.href = '@Url.Action("TaskAssignAddedit", "TaskAssign")' + '?TaskAssignID=' + taskassignId;
+                }
+            });
+        }
+
+        $(document).on("click", "#searchButton", function (event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            console.log("Button Clicked");
+
+            var projectWiseTaskName = $("input[name='ProjWiseTaskID']").val();
+            var employeeName = $("input[name='EmpID']").val();
+            var statusName = $("input[name='StatusID']").val();
+
+            console.log("projectWiseTask Name:", projectWiseTaskName);
+            console.log("Employee Name:", employeeName);
+            console.log("Status Name:", statusName);
+
+            $("tbody tr").each(function (index, element) {
+                var row = $(element);
+                var projwisetaskname = row.find("td:eq(3)").text();
+                var empname = row.find("td:eq(4)").text();
+                var stsname = row.find("td:eq(5)").text();
+
+                console.log("Row projwisetaskname:", projwisetaskname);
+                console.log("Row empname:", empname);
+                console.log("Row stsname:", stsname);
+
+                // Check if the values are not undefined
+                if ((projectWiseTaskName === '' || projwisetaskname.includes(projectWiseTaskName)) &&
+                    (employeeName === '' || empname.includes(employeeName)) &&
+                    (statusName === '' || stsname.includes(statusName))) {
+                    // Show the row if it meets the search criteria
+                    row.show();
+                } else {
+                    // Hide the row if it doesn't meet the search criteria
+                    row.hide();
+                }
+            });
+
+            // Clear the form fields
+            $("input[name='ProjWiseTaskID']").val('');
+            $("input[name='EmpID']").val('');
+            $("input[name='StatusID']").val('');
+        });
+
+
+    </script>
+}
+<div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item">Add TaskAssign</li>
+            <li class="breadcrumb-item active">TaskAssign List</li>
+        </ol>
+    </nav>
+</div>
+<!-- End Page Title -->
+@using System.Data;
+@model IEnumerable<TaskAssignModel>;
+
+
+
+<form class="form-inline row" role="search" method="post">
+    <div class="col-4">
+        <select id="inputStatus" class="form-select" name="ProjWiseTaskID" asp-items="@(new SelectList(ViewBag.projectWistTaskList,"ProjWiseTaskID","ProjWiseTaskName"))">
+            <option selected>Select TaskName</option>
+        </select>
+    </div>
+    <div class="col-4">
+        <select id="inputStatus" class="form-select" name="EmpID" asp-items="@(new SelectList(ViewBag.employeelist,"EmpID","EmpName"))">
+            <option selected>Select EmpName</option>
+        </select>
+    </div>
+    <div class="form-group col-md-3">
+        <select id="inputStatus" class="form-select" name="StatusID" asp-items="@(new SelectList(ViewBag.StatusList,"StatusID","StatusName"))">
+            <option selected>Select Status</option>
+        </select>
+    </div>
+    <br />
+    <br />
+    <div class="col-3">
+        <input type="date" class="form-control" placeholder="Enter TaskAssign Start Date"
+               name="TaskAssignStartDate">
+    </div>
+    <div class="col-3">
+        <input type="date" class="form-control" placeholder="Enter TaskAssign Completion Date"
+               name="TaskAssignCompletionDate">
+    </div>
+    <div class="col">
+        <button class="btn btn-info btn-md" type="submit"
+                asp-area="TaskAssign" asp-controller="TaskAssign" asp-action="Filter">
+            <i class="bi bi-filter"></i>
+            Apply Filter
+        </button>
+    </div>
+    <div class="col">
+        <a class="btn btn-success" asp-area="TaskAssign" asp-controller="TaskAssign" asp-action="Export_TaskAssign_List_To_Excel">
+            <i class="bi bi-file-earmark-excel"></i>
+            <span> Excel</span>
+        </a>
+    </div>
+    <div class="col">
+        <a class="btn btn-danger" asp-area="TaskAssign" asp-controller="TaskAssign" asp-action="Export_TaskAssign_List_To_pdf">
+            <i class="bi bi-file-earmark-pdf"></i><span> Pdf</span>
+        </a>
+    </div>
+</form>
+<br />
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><b>TaskAssign List</b></h5>
+                    <form method="get" asp-action="Delete" asp-controller="TaskAssign" asp-area="TaskAssign">
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" method="post" class="btn btn-danger btn-md">
+                                    <i class="bi bi-trash3-fill"></i> Multiple Delete
+                                </button>
+                            </div> 
+                            <div class="col" align="right">
+                                <a type="submit" class="btn btn-info btn-md" asp-area="TaskAssign"
+                                   asp-action="TaskAssignAddedit" asp-controller="TaskAssign">
+                                    <i class="bi bi-plus-circle"></i> Add TaskAssign
+                                </a>
+                            </div>
+                        </div>
+                        <br />
+                        @{
+                            if (Model.Count() > 0)
+                            {
+                                <div class="table-responsive">
+                                    <table class="table datatable table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Select</th>
+                                                <th scope="col">Sr.No</th>
+                                                <th scope="col">ProjectWiseTask Name</th>
+                                                <th scope="col">Employee Name</th>
+                                                <th scope="col">Status Name</th>
+                                                <th scope="col">Start Date</th>
+                                                <th scope="col">Compleation Date</th>
+                                                <th class="text-center" scope="col" colspan="2">Edit</th>
+                                                <th class="text-center" scope="col" colspan="2">Delete</th>
+                                                @*<th scope="col" >Created</th>
+                                        <th scope="col" >Modified</th>*@
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                int i = 1;
+                                            }
+                                            @{
+                                                if (Model.Count() > 0)
+                                                {
+                                                    @foreach (TaskAssignModel tsk in Model)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input md" type="checkbox" value="@tsk.TaskAssignID.ToString()"
+                                                                           id="gridCheck1" name="TaskAssignIDlist">
+                                                                </div>
+                                                            </td>
+                                                            <td>@i</td>
+                                                            <td>@tsk.ProjWiseTaskName</td>
+                                                            <td>@tsk.EmpName</td>
+                                                            <td>@tsk.StatusName</td>
+                                                            <td>@(tsk.TaskAssignStartDate == null ? "" : tsk.TaskAssignStartDate.Value.ToString("dd-MM-yyyy"))</td>
+                                                            <td>@(tsk.TaskAssignCompletionDate == null ? "" : tsk.TaskAssignCompletionDate.Value.ToString("dd-MM-yyyy"))</td>
+                                                            <td>
+                                                                <a class="btn btn-md btn-success" onclick="Update('@tsk.TaskAssignID')">  <i class="bi bi-pencil-square"></i> </a>
+                                                            </td>
+                                                            <td>
+                                                                <a class="btn btn-md btn-danger" onclick="Delete('@tsk.TaskAssignID.ToString()')">
+                                                                    <i class="bi bi-trash3-fill"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        i = i + 1;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <tr>
+                                                        <td colspan="5" class="text-center">
+                                                            <p class="col-form-label">No Record Found</p>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="5" class="text-center">
+                                        <h1 class=" text-center text-danger">No Record Found</h1>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

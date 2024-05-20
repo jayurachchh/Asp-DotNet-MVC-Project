@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Project_Management2</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\MST_Company\**" />
+    <Compile Remove="Areas\RTO_State\**" />
+    <Content Remove="Areas\MST_Company\**" />
+    <Content Remove="Areas\RTO_State\**" />
+    <EmbeddedResource Remove="Areas\MST_Company\**" />
+    <EmbeddedResource Remove="Areas\RTO_State\**" />
+    <None Remove="Areas\MST_Company\**" />
+    <None Remove="Areas\RTO_State\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Email_Services\EmailSender.cs" />
+    <Compile Remove="Email_Services\IEmailSender.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\AdminLogin\Data\" />
+    <Folder Include="Areas\Dashbord\Data\" />
+    <Folder Include="Areas\Dashbord\Views\" />
+    <Folder Include="Areas\Employee\Data\" />
+    <Folder Include="Areas\Employee\NewFolder\" />
+    <Folder Include="Areas\Employee\Views\Shared\" />
+    <Folder Include="Areas\ProjectWiseTask\Data\" />
+    <Folder Include="Areas\Project\Data\" />
+    <Folder Include="Areas\Status\Controllers\" />
+    <Folder Include="Areas\Status\Data\" />
+    <Folder Include="Areas\Status\Views\" />
+    <Folder Include="Areas\TaskAssign\Data\" />
+    <Folder Include="uploads\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link="DAL\.editorconfig" />
+    <None Include="Email_Services\EmailSender.cs" />
+    <None Include="Email_Services\IEmailSender.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.102.2" />
+    <PackageReference Include="itext" Version="8.0.3" />
+    <PackageReference Include="itext7" Version="8.0.3" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.3" />
+    <PackageReference Include="itextsharp.xmlworker" Version="5.5.13.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+</Project>

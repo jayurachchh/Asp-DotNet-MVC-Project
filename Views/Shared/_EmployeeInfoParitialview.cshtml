@@ -1,0 +1,151 @@
+﻿@model Project_Management2.Areas.Employee.Models.Emp_Info_By_ID
+
+
+<div class="row">
+    @if (!string.IsNullOrEmpty(Model.EmpPosition))
+    {
+        string baseAdress = "https://localhost:7113/";
+
+        string ImgUrl = Model.EmpProfileImage;
+        string ImgUrl1 = Model.EmpProofImage;
+
+        string FinalImg = baseAdress + ImgUrl;
+        string FinalImg1 = baseAdress + ImgUrl1;
+
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <img src="@FinalImg" alt="avatar"
+                         class="rounded-circle img-fluid" style="width: 150px;">
+                    <h5 class="my-3">
+                    </h5>
+
+                    <p class="text-muted mb-1">@Model.EmpDepartment</p>
+
+
+                    <p class="text-muted mb-4">@Model.EmpPosition</p>
+                    @*   <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary">Follow</button>
+                <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+                </div> *@
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Full Name</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0" id="transactionId">@Model.EmpName</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Emp Code</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">
+                                @Model.EmpCode
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Email</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">@Model.EmpEmail</p>
+                        </div>
+                    </div>
+                    <hr>
+                    @*          <div class="row">
+                <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                <p class="text-muted mb-0">(097) 234-5678</p>
+                </div>
+                </div>
+                <hr> *@
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Mobile</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">@Model.EmpContact</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">DOB</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">@Model.EmpDateOfBirth.ToString("dd-MM-yyyy")</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">PerHourCharge</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">@Model.EmpPerHourCharge</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">IS Manager</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">@Model.EmpManagerId</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p class="mb-0">Proof Image</p>
+                        </div>
+                        <div class="col-sm-8">
+                            @*     <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                        class="recta img-fluid" style="width: 150px;"> *@
+                            <img src="@FinalImg1" class="img-thumbnail"
+                                 alt="Cinque Terre" width="90" height="90">
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p class="mb-0">Proof Name</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="text-muted mb-0">@Model.EmpProofName</p>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p class="mb-0">Git Link</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="text-muted mb-0">@Model.EmpGitLink</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>
+

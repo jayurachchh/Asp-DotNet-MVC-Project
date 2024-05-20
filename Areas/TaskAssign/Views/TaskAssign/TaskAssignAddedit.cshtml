@@ -1,0 +1,76 @@
+﻿@using Project_Management2.Areas.TaskAssign.Models;
+@{
+    ViewData["Title"] = "Addedit Page";
+}
+@model TaskAssignModel
+<div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-area="TaskAssign" asp-controller="TaskAssign" asp-action="TaskAssignList">TaskAssign List</a></li>
+            <li class="breadcrumb-item active">Add TaskAssign</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">TaskAssign Details Form</h5>
+
+        <!-- No Labels Form -->
+        <form class="row g-3" asp-action="Save" asp-controller="TaskAssign" asp-area="TaskAssign">
+            @Html.HiddenFor(x=>x.TaskAssignID)
+            <div class="form-group col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Select TaskName</label>
+                <select id="inputStatus" class="form-select" asp-for="ProjWiseTaskID" asp-items="@(new SelectList(ViewBag.projectWistTaskList,"ProjWiseTaskID","ProjWiseTaskName"))">
+                    <option selected>Select TaskName</option>
+                </select>
+                <span asp-validation-for="ProjWiseTaskID" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Select Employee</label>
+                <select id="inputStatus" class="form-select" asp-for="EmpID" asp-items="@(new SelectList(ViewBag.employeelist,"EmpID","EmpName"))">
+                    <option selected>Select Employee</option>
+                </select>
+                <span asp-validation-for="EmpID" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>Select Status</label>
+                <select id="inputStatus" class="form-select" asp-for="StatusID" asp-items="@(new SelectList(ViewBag.StatusList,"StatusID","StatusName"))">
+                    <option selected>Select Status</option>
+                </select>
+                <span asp-validation-for="StatusID" class="text-danger"></span>
+                </div>
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>TaskAssign Start Date</label>
+                <input type="date" class="form-control" placeholder="Enter TaskAssign Start Date" asp-for="TaskAssignStartDate">
+                <span asp-validation-for="TaskAssignStartDate" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label for="inputName5" class="form-label"><span class="text-danger">*</span>TaskAssign Completion Date</label>
+                <input type="date" class="form-control" placeholder="Enter TaskAssign Completion Date" 
+                asp-for="TaskAssignCompletionDate">
+                <span asp-validation-for="TaskAssignCompletionDate" class="text-danger"></span>
+            </div>
+            <div class="col-4">
+                <div class="form-floating">
+                    <textarea class="form-control" id="floatingTextarea" style="height: 100px;" placeholder="Enter Project Description" asp-for="Remarks">
+                    </textarea>
+                    <label for="floatingTextarea"><span class="text-danger">*</span>Remarks</label>
+                    <span asp-validation-for="Remarks" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-info btn-md">Submit</button>
+                <a class="btn btn-secondary btn-md" asp-area="TaskAssign" asp-controller="TaskAssign" asp-action="TaskAssignList">Back</a>
+                <button type="reset" class="btn btn-danger btn-md">Reset</button>
+            </div>
+        </form><!-- End No Labels Form -->
+
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial.cshtml" />
+
+}
